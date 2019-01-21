@@ -1,5 +1,12 @@
 <h1>GitHub Search</h1>
+<div class="container">
+    <div class="row">
+        <app-user-form></app-user-form>
+    </div>
+</div>
+
 
 <ul>
   <li *ngFor='let user of users'>{{user.name}}</li>
+   <app-user-info [user]='user'></app-user-info>
 </ul>
