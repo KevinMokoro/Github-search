@@ -5,10 +5,10 @@
         <app-user-form></app-user-form>
     </div>
 </div>
-<p>{{user.login}}</p>
-<p>{{user.followers}}</p>
-<p>{{user.following}}</p>
-<p>{{user.repos}}</p>
+<p>Username:{{user.login}}</p>
+<p>Followers:{{user.followers}}</p>
+<p>Following:{{user.following}}</p>
+<p>Number of Repositories:{{user.repos}}</p>
 <p>{{user.avatar_url}}</p>
 <ul>
   <li *ngFor='let user of users'>{{user.name}}</li>
