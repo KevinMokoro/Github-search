@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {user} from "../user"
 import {HttpClient} from '@angular/common/http'
-
 import {User} from '../user-class/user'
 @Component({
   selector: 'app-user',
@@ -16,7 +15,16 @@ export class UserComponent implements OnInit {
 
     }
 
-  ngOnInit() {  this.http.get("https://api.github.com/users/KevinMokoro?access_token=ca726da5807d7a2a7e5babf61aebfd7a2611082f").subscribe(data=>{
+
+  ngOnInit() {
+    interface ApiResponse{
+        login:string;
+        repos:string;
+        followers:number;
+        following:number
+    }
+     this.http.get<ApiResponse>("https://api.github.com/users/KevinMokoro?access_token=ca726da5807d7a2a7e5babf61aebfd7a2611082f").subscribe(data=>{
+    this.user=new User(data.login,data.repos,data.followers,data.following)
       })
   }
 
