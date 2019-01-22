@@ -9,7 +9,7 @@
 <p>Followers:{{user.followers}}</p>
 <p>Following:{{user.following}}</p>
 <p>Number of Repositories:{{user.repos}}</p>
-<p>{{user.avatar_url}}</p>
+
 <ul>
   <li *ngFor='let user of users'>{{user.name}}</li>
    <app-user-info [user]='user'></app-user-info>

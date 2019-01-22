@@ -9,7 +9,7 @@ export class UserRequestService {
   user: User;
 
   constructor(private http: HttpClient) {
-    this.user = new User("", number, number, number, "");
+    this.user = new User("", 0, 0, 0, "");
   }
   userRequest() {
 
@@ -45,6 +45,6 @@ export class UserRequestService {
       )
     })
     return promise
-  
+
   }
 }
