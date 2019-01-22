@@ -8,6 +8,7 @@
 <p>{{user.followers}}</p>
 <p>{{user.following}}</p>
 <p>{{user.repos}}</p>
+<p>{{user.avatar_url}}</p>
 <ul>
   <li *ngFor='let user of users'>{{user.name}}</li>
    <app-user-info [user]='user'></app-user-info>
