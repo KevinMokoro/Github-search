@@ -4,8 +4,10 @@
         <app-user-form></app-user-form>
     </div>
 </div>
-
-
+<p>{{user.login}}</p>
+<p>{{user.followers}}</p>
+<p>{{user.following}}</p>
+<p>{{user.repos}}</p>
 <ul>
   <li *ngFor='let user of users'>{{user.name}}</li>
    <app-user-info [user]='user'></app-user-info>
