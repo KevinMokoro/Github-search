@@ -37,7 +37,7 @@ export class UserRequestService {
           this.user.repos = 15
           this.user.followers = 0
           this.user.following = 0
-          this.user.avatar_url = pic
+          this.user.avatar_url = "photo"
           reject(error)
 
 
@@ -45,5 +45,6 @@ export class UserRequestService {
       )
     })
     return promise
+  
   }
 }

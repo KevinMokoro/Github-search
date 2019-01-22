@@ -2,10 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import {user} from "../user"
 import {HttpClient} from '@angular/common/http'
 import {User} from '../user-class/user'
+
+import {UserRequestService} from '../user-http/user-request.service'
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  styleUrls: ['./user.component.css'],
+  providers: [UserRequestService]
 })
 export class UserComponent implements OnInit {
 
@@ -30,6 +33,8 @@ export class UserComponent implements OnInit {
     this.user=new User('Kevin',15,0,0,'pic')
     console.log("Error occured ")
   })
+  this.userService.userRequest()
+  this.user=this.userService.user
   }
 
 }
