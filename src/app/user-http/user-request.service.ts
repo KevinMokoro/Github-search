@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { environment } from '../../environments/environment'
 import { User } from '../user-class/user'
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class UserRequestService {
   user: User;
 

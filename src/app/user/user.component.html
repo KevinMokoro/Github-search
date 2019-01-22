@@ -12,7 +12,7 @@
 <p>Number of Repositories:{{user.repos}}</p>
 <img src="{{"https://avatars2.githubusercontent.com/u/45225956?v=4"}}" alt="">
 <ul>
-  <li *ngFor='let user of users'>{{user.name}}</li>
+  <li *ngFor='let user of user'>{{user.name}}</li>
    <app-user-info [user]='user'></app-user-info>
 </ul>
 </div>
