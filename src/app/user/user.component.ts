@@ -13,10 +13,10 @@ export class UserComponent implements OnInit {
  users=[]
 
   constructor(private http:HttpClient) {
-  
+
     }
 
-  ngOnInit() {  this.http.get('https://api.github.com/users/daneden?access_token=' + bbb2198f517dc0c470c5c46773d9e9c516d19fde).subscribe(data=>{
+  ngOnInit() {  this.http.get("https://api.github.com/users/KevinMokoro?access_token=ca726da5807d7a2a7e5babf61aebfd7a2611082f").subscribe(data=>{
       })
   }
 

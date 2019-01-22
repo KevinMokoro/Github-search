@@ -1,3 +1,3 @@
 export class User {
-  constructor(public name:user,public description:string){}
+  constructor(public login:string,public repos:string,public followers:number,public following:number){}
 }
