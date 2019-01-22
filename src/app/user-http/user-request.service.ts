@@ -15,7 +15,7 @@ export class UserRequestService {
 
     interface ApiResponse {
       login: string;
-      repos: number;
+      public_repos: number;
       followers: number;
       following: number;
       avatar_url: string
@@ -24,7 +24,7 @@ export class UserRequestService {
     let promise = new Promise((resolve, reject) => {
       this.http.get<ApiResponse>(environment.apiUrl).toPromise().then(response => {
         this.user.login = response.login
-        this.user.repos = response.repos
+        this.user.repos = response.public_repos
         this.user.followers = response.followers
         this.user.following = response.following
         this.user.avatar_url = response.avatar_url

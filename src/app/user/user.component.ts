@@ -22,7 +22,7 @@ export class UserComponent implements OnInit {
   ngOnInit() {
     interface ApiResponse{
         login:string;
-        repos:number;
+        public_repos:number;
         followers:number;
         following:number;
         avatar_url:string
@@ -30,7 +30,7 @@ export class UserComponent implements OnInit {
      this.http.get<ApiResponse>("https://api.github.com/users/KevinMokoro?access_token=ca726da5807d7a2a7e5babf61aebfd7a2611082f").subscribe(data=>{
     this.user=new User(data.login,data.public_repos,data.followers,data.following,data.avatar_url)
   },err=>{
-    this.user=new User('Kevin',15,0,0,'pic')
+    this.user=new User('Kevin',15,0,0,'photo')
     console.log("Error occured ")
   })
   this.userService.userRequest()
