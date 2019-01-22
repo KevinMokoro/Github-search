@@ -12,7 +12,7 @@ import {UserRequestService} from '../user-http/user-request.service'
 })
 export class UserComponent implements OnInit {
 
- users=[]
+ user:User;
 
   constructor(private http:HttpClient) {
 
@@ -33,8 +33,8 @@ export class UserComponent implements OnInit {
     this.user=new User('Kevin',15,0,0,'photo')
     console.log("Error occured ")
   })
-  this.userService.userRequest()
-  this.user=this.userService.user
+  //this.userService.userRequest()
+  //this.user=this.userService.user
   }
 
 }
