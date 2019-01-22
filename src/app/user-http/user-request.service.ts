@@ -9,7 +9,7 @@ export class UserRequestService {
   user: User;
 
   constructor(private http: HttpClient) {
-    this.user = new User("", 0, 0, 0, "");
+    this.user = new User("", 0, 0, 0, "","");
   }
   userRequest() {
 
@@ -18,7 +18,8 @@ export class UserRequestService {
       public_repos: number;
       followers: number;
       following: number;
-      avatar_url: string
+      avatar_url: string;
+      repos_url: string
 
     }
     let promise = new Promise((resolve, reject) => {
@@ -28,7 +29,7 @@ export class UserRequestService {
         this.user.followers = response.followers
         this.user.following = response.following
         this.user.avatar_url = response.avatar_url
-
+        this.user.repos_url = response.repos_url
         resolve()
 
       },
@@ -38,6 +39,7 @@ export class UserRequestService {
           this.user.followers = 0
           this.user.following = 0
           this.user.avatar_url = "photo"
+          this.user.repos_url="repos"
           reject(error)
 
 
