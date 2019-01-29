@@ -1,16 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-import { environment } from '../../environments/environment'
-import { User } from '../user-class/user'
+import {environment} from '../../environments/environment'
+import {User} from '../user';
+
+import {Repository} from '../repository'
+
+
 @Injectable()
 export class UserRequestService {
-  user: User;
+  user:User;
 
   constructor(private http: HttpClient) {
     this.user = new User("", 0, 0, 0, "","");
   }
-  userRequest() {
-
+  userRequest(username:string) {
+    if(username!=""){
     interface ApiResponse {
       login: string;
       public_repos: number;
@@ -21,7 +25,9 @@ export class UserRequestService {
 
     }
     let promise = new Promise((resolve, reject) => {
-      this.http.get<ApiResponse>(environment.apiUrl).toPromise().then(response => {
+      this.http.get<ApiResponse>
+      (environment.apiUrl+username+environment.token).toPromise().then(response =>
+         {
         this.user.login = response.login
         this.user.repos = response.public_repos
         this.user.followers = response.followers
@@ -32,12 +38,12 @@ export class UserRequestService {
 
       },
         error => {
-          this.user.login = "KevinMokoro"
-          this.user.repos = 15
-          this.user.followers = 0
-          this.user.following = 0
-          this.user.avatar_url = "photo"
-          this.user.repos_url="repos"
+        //  this.user.login = "KevinMokoro"
+        //  this.user.repos = 15
+        //  this.user.followers = 0
+          //this.user.following = 0
+          //this.user.avatar_url = "photo"
+          //this.user.repos_url="repos"
           reject(error)
 
 
@@ -47,4 +53,5 @@ export class UserRequestService {
     return promise
 
   }
+}
 }

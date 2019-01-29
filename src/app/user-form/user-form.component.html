@@ -1,9 +1,23 @@
 <form>
-<div class="form-group">
+  <div class="form-group">
 
-  <label for="username">Username/Repository</label>
-  <input type="text" required class="form-control" id="name">
+    <label for="username">Username/Repository</label>
+    <input type="text" required class="form-control" id="name" [(ngModel)]="userName" name="name" #name="ngModel">
+
+  </div>
+  <button type="Submit" class="btn btn-success btn-lg" (click)=showUser()>Search</button>
+</form>
+<div id="temp" class="row" *ngIf="display==true">
+
+  <div class="col-md-4">
+
+    <p>Username:{{user.login}}</p>
+    <p>Followers:{{user.followers}}</p>
+    <p>Following:{{user.following}}</p>
+    <p>Number of Repositories:{{user.repos}}</p>
+    <img src="https://avatars2.githubusercontent.com/u/45225956?v=4" alt="">
+
+
+  </div>
 
 </div>
-  <button type="Submit" class="btn btn-success btn-lg">Search</button>
-</form>

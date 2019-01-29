@@ -1,13 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output ,EventEmitter } from '@angular/core';
+import {User} from '../user';
+
+import { UserRequestService} from '../user-http/user-request.service';
+
 
 @Component({
   selector: 'app-user-form',
   templateUrl: './user-form.component.html',
-  styleUrls: ['./user-form.component.css']
+  styleUrls: ['./user-form.component.css'],
+  providers:[UserRequestService]
 })
 export class UserFormComponent implements OnInit {
+ userName="";
 
-  constructor() { }
+ user:User;
+
+ display=false;
+
+ @Output() addUser=new EventEmitter<User>();
+
+  constructor(private userService:UserRequestService){}
+  showUser(){
+
+   this.display=true;
+
+   this.userService.userRequest(this.userName);
+
+   this.user=this.userService.user;
+
+ }
 
   ngOnInit() {
   }
